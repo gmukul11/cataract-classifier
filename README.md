@@ -138,6 +138,11 @@ Best performing model metrics:
 - Precision: 0.98
 - Recall: 0.98
 - F1-Score: 0.98
+  
+- ![confusion_matrix_mobilenet_v2](https://github.com/user-attachments/assets/c9c879c1-552a-4c7c-9fa2-4b5f3780be46)
+
+
+
 
 ## MLflow Tracking
 
