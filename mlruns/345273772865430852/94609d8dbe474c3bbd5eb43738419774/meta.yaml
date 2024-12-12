@@ -1,0 +1,15 @@
+artifact_uri: file:///home/jovyan/dev/Mukul/jv/cataract-classifier/mlruns/345273772865430852/94609d8dbe474c3bbd5eb43738419774/artifacts
+end_time: 1734020029352
+entry_point_name: ''
+experiment_id: '345273772865430852'
+lifecycle_stage: active
+run_id: 94609d8dbe474c3bbd5eb43738419774
+run_name: mobilenet_v2
+run_uuid: 94609d8dbe474c3bbd5eb43738419774
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734019821628
+status: 3
+tags: []
+user_id: jovyan

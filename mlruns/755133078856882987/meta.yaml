@@ -1,0 +1,6 @@
+artifact_location: file:///home/jovyan/dev/Mukul/jv/cataract-classifier/mlruns/755133078856882987
+creation_time: 1734020030116
+experiment_id: '755133078856882987'
+last_update_time: 1734020030116
+lifecycle_stage: active
+name: cataract-classification_vgg16
