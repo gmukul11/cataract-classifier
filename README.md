@@ -12,14 +12,14 @@ This project implements a deep learning solution for cataract detection in eye i
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd cataract-classification
+git clone git@github.com:gmukul11/cataract-classifier.git
+cd cataract-classifier
 ```
 
 2. Create and activate a virtual environment:
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate 
 ```
 
 3. Install dependencies:
@@ -35,12 +35,24 @@ mkdir -p ~/.kaggle
 cp path/to/kaggle.json ~/.kaggle/
 chmod 600 ~/.kaggle/kaggle.json
 ```
+## Steps to Run
 
-## Data Pipeline
+1. Download Data
+```bash
+#!/bin/bash
+curl -L -o ./data/cataract-image-dataset.zip https://www.kaggle.com/api/v1/datasets/download/nandanp6/cataract-image-dataset
+```
+2. UnZip the Data inside data folder
+3. Run model training component
+```bash
+python3 components/train/src/component.py
+```
+
+## Indiviudal ML Pipeline
 
 1. Data Source:
 ```bash
-python components/source/src/component.py
+python3 components/source/src/component.py
 ```
 This will:
 - Create dataloader
@@ -48,7 +60,7 @@ This will:
 
 2. Data Transformation:
 ```bash
-python components/transform/src/component.py
+python3 components/transform/src/component.py
 ```
 This performs:
 - Image preprocessing
@@ -57,7 +69,7 @@ This performs:
 
 3. Model Training:
 ```bash
-python components/train/src/component.py
+python3 components/train/src/component.py
 ```
 Features:
 - Trains multiple models (VanillaCNN, ResNet50, VGG16, etc.)
@@ -78,7 +90,7 @@ Generates:
 1. Start the API server:
 ```bash
 # Option 1: Using Python
-python app/api.py
+python3 app/server.py
 
 # Option 2: Using Uvicorn directly
 uvicorn app.api:app --host 0.0.0.0 --port 8000 --reload
@@ -86,7 +98,7 @@ uvicorn app.api:app --host 0.0.0.0 --port 8000 --reload
 
 2. API Endpoints:
 - Health Check: `GET /health`
-- Prediction: `POST /predict`
+- Prediction: `POST /api/v1/classify`
 
 3. Example API Usage:
 ```python
@@ -99,7 +111,7 @@ print(response.json())
 # Make prediction
 with open("path/to/image.jpg", "rb") as f:
     response = requests.post(
-        "http://localhost:8000/predict",
+        "http://localhost:8000/api/v1/classify",
         files={"file": f}
     )
 print(response.json())
@@ -109,11 +121,8 @@ print(response.json())
 
 Run the test suite:
 ```bash
-# Run all tests
-pytest
-
 # Run specific tests
-pytest tests/test_api/test_api.py
+pytest tests/test_api.py
 ```
 
 ## Model Training Results
@@ -125,10 +134,10 @@ The project includes several models:
 - MobileNetV2
 
 Best performing model metrics:
-- Accuracy: 94.2%
-- Precision: 0.93
-- Recall: 0.95
-- F1-Score: 0.94
+- Accuracy: 98.3%
+- Precision: 0.98
+- Recall: 0.98
+- F1-Score: 0.98
 
 ## MLflow Tracking
 
