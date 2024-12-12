@@ -150,10 +150,9 @@ mlflow ui
 
 ## Configuration
 
-Modify `configs/config.yml` to adjust:
+Modify `config.yml` to adjust:
 - Model architectures
 - Training parameters
-
 
 
 ## Contributing
